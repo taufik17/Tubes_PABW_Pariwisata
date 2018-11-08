@@ -72,6 +72,19 @@ INSERT INTO `daerah` (`id_daerah`, `nama_daerah`) VALUES
 ('KTS', 'Kabupaten Tanggamus'),
 ('KWK', 'Kabupaten Way Kanan');
 
+
+<!-- Member -->
+
+CREATE TABLE member(
+  nama_member VARCHAR(25) NOT NULL,
+  uname VARCHAR(8) NOT NULL,
+  hengpon VARCHAR(12) NOT NULL,
+  Jenis_kelamin CHAR(1) NOT NULL,
+  kota VARCHAR(25) NOT NULL,
+  pass VARCHAR(8) NOT NULL, 
+  email VARCHAR(255) NOT NULL,
+  PRIMARY KEY(uname)
+)Engine = InnoDB;
 -- --------------------------------------------------------
 
 --
@@ -190,6 +203,7 @@ INSERT INTO `kuliner_favorit` (`id_resto`, `id_daerah`, `tempat`, `nam_resto`, `
 
 CREATE TABLE `testimoni` (
   `id_testimoni` int(20) NOT NULL,
+   `label` VARCHAR(10) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `text` text NOT NULL,
   `asal` varchar(100) NOT NULL,
@@ -200,14 +214,16 @@ CREATE TABLE `testimoni` (
 -- Dumping data for table `testimoni`
 --
 
-INSERT INTO `testimoni` (`id_testimoni`, `nama`, `text`, `asal`, `foto`) VALUES
-(1, 'Taufik Agung Santoso', 'mengakses informasi menggunakan layanan di web ini itu dapat dipercaya, dan pasti terupdate beritanya', 'Teknik Informatika - Institut Teknologi Sumatera', 'taufik.jpg'),
-(3, 'Pasha Abdul Khalid', 'Tes Testimoni', 'Teknik Informatika - Institut Teknologi Sumatera', 'pasha.jpg'),
-(4, 'hamzah', 'ok', 'lampung', '');
+INSERT INTO `testimoni` (`id_testimoni`,`label`, `nama`, `text`, `asal`, `foto`) VALUES
+(1,`testimoni`, 'Taufik Agung Santoso', 'mengakses informasi menggunakan layanan di web ini itu dapat dipercaya, dan pasti terupdate beritanya', 'Teknik Informatika - Institut Teknologi Sumatera', 'taufik.jpg'),
+(3,`testimoni`,'Pasha Abdul Khalid', 'Tes Testimoni', 'Teknik Informatika - Institut Teknologi Sumatera', 'pasha.jpg'),
+(4,`testimoni`,'hamzah', 'ok', 'lampung', '');
 
 -- --------------------------------------------------------
+<!-- kalo mau ambil data ulasan 
+	SELECT `nama`,text`,`asal`,`foto` FROM `testimoni` WHERE `label` = `kuliner`;
+-->
 
---
 -- Table structure for table `User`
 --
 
@@ -238,7 +254,8 @@ CREATE TABLE `wisata` (
   `harga` varchar(20) NOT NULL DEFAULT 'Rp ',
   `deskripsi` text,
   `gambar` varchar(20) NOT NULL DEFAULT 'fakeimage.jpg',
-  `maps` text NOT NULL
+  `maps` text NOT NULL,
+  `uname` VARCHAR(8)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1; auto_increment = 10;
 
 --
@@ -315,6 +332,13 @@ ALTER TABLE `wisata`
   ADD PRIMARY KEY (`id_wisata`),
   ADD KEY `id_daerah` (`id_daerah`);
 
+
+-- foreign member ke wisata
+
+ALTER  TABLE `wisata
+  ADD FOREIGN KEY (`uname`) REFERENCES `member`(`uname`) ON UPDATE CASCADE;
+  
+  
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -352,22 +376,11 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-<!-- Member -->
-
-CREATE TABLE member(
-	nama_member VARCHAR(25) NOT NULL,
-	uname VARCHAR(8) NOT NULL,
-  hengpon VARCHAR(12) NOT NULL,
-  Jenis_kelamin CHAR(1) NOT NULL,
-  kota VARCHAR(25) NOT NULL,
-	pass VARCHAR(8) NOT NULL,
-	email VARCHAR(255) NOT NULL,
-	PRIMARY KEY(uname)
-)Engine = InnoDB;
 
 
 <!-- Mencambah data di tabel pariwisata 
 
-  INSERT INTO pariwisata (`id_daerah`, `tempat`, `nama_wisata`, `lokasi`, `harga`, `deskripsi`, `gambar`, `maps`) VALUES
-  ( blablabla,blabla,blabla,.....)
+  INSERT INTO pariwisata (`id_daerah`, `nama_wisata`, `lokasi`, `harga`, `deskripsi`, `gambar`,`member`) VALUES
+  ( blablabla,blabla,blabla,<member adalah sesi member yang login>)
  -->
+ 
