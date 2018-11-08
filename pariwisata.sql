@@ -366,6 +366,8 @@ CREATE TABLE member(
 )Engine = InnoDB;
 
 
-<! Mencambah data di tabel pariwisata 
+<!-- Mencambah data di tabel pariwisata 
 
-  INSERT INTO
+  INSERT INTO pariwisata (`id_daerah`, `tempat`, `nama_wisata`, `lokasi`, `harga`, `deskripsi`, `gambar`, `maps`) VALUES
+  ( blablabla,blabla,blabla,.....)
+ -->
