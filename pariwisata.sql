@@ -30,8 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `admin`
@@ -48,7 +49,8 @@ INSERT INTO `admin` (`username`, `password`) VALUES
 
 CREATE TABLE `daerah` (
   `id_daerah` char(3) NOT NULL,
-  `nama_daerah` varchar(30) NOT NULL
+  `nama_daerah` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_daerah`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -73,7 +75,7 @@ INSERT INTO `daerah` (`id_daerah`, `nama_daerah`) VALUES
 ('KWK', 'Kabupaten Way Kanan');
 
 
-<!-- Member -->
+-- Member
 
 CREATE TABLE member(
   nama_member VARCHAR(25) NOT NULL,
@@ -100,8 +102,10 @@ CREATE TABLE `hotel` (
   `harga` varchar(20) DEFAULT NULL,
   `deskripsi` text,
   `gambar` varchar(20) NOT NULL DEFAULT 'fakeimg.jpg',
-  `maps` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `maps` text NOT NULL,
+  PRIMARY KEY (`id_hotel`),
+  FOREIGN KEY (`id_daerah`) REFERENCES `daerah`(`id_daerah`) ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `hotel`
@@ -129,7 +133,9 @@ CREATE TABLE `hotel_favorit` (
   `lokasi` varchar(500) NOT NULL,
   `harga` varchar(20) DEFAULT NULL,
   `deskripsi` text,
-  `gambar` varchar(20) NOT NULL DEFAULT 'fakeimg.jpg'
+  `gambar` varchar(20) NOT NULL DEFAULT 'fakeimg.jpg',
+  PRIMARY KEY (`id_hotel`),
+  FOREIGN KEY (`id_daerah`) REFERENCES `daerah`(`id_daerah`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -155,7 +161,9 @@ CREATE TABLE `kuliner` (
   `tempat` varchar(20) NOT NULL DEFAULT 'Lampung',
   `lokasi` varchar(100) NOT NULL,
   `deskripsi` text,
-  `gambar` varchar(20) NOT NULL DEFAULT 'fakeimg.jpg'
+  `gambar` varchar(20) NOT NULL DEFAULT 'fakeimg.jpg',
+  PRIMARY KEY (`id_resto`),
+  FOREIGN KEY (`id_daerah`) REFERENCES `daerah`(`id_daerah`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -182,7 +190,9 @@ CREATE TABLE `kuliner_favorit` (
   `nam_resto` varchar(25) NOT NULL,
   `lokasi` varchar(100) NOT NULL,
   `deskripsi` text,
-  `gambar` varchar(20) NOT NULL DEFAULT 'fakeimg.jpg'
+  `gambar` varchar(20) NOT NULL DEFAULT 'fakeimg.jpg',
+  PRIMARY KEY (`id_resto`),
+  FOREIGN KEY (`id_daerah`) REFERENCES `daerah`(`id_daerah`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -202,34 +212,36 @@ INSERT INTO `kuliner_favorit` (`id_resto`, `id_daerah`, `tempat`, `nam_resto`, `
 --
 
 CREATE TABLE `testimoni` (
-  `id_testimoni` int(20) NOT NULL,
-   `label` VARCHAR(10) NOT NULL,
+  `id_testimoni` int(20) NOT NULL auto_increment,
+  `label` VARCHAR(10) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `text` text NOT NULL,
   `asal` varchar(100) NOT NULL,
-  `foto` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `foto` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_testimoni`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 auto_increment=5;
 
 --
 -- Dumping data for table `testimoni`
 --
 
 INSERT INTO `testimoni` (`id_testimoni`,`label`, `nama`, `text`, `asal`, `foto`) VALUES
-(1,`testimoni`, 'Taufik Agung Santoso', 'mengakses informasi menggunakan layanan di web ini itu dapat dipercaya, dan pasti terupdate beritanya', 'Teknik Informatika - Institut Teknologi Sumatera', 'taufik.jpg'),
-(3,`testimoni`,'Pasha Abdul Khalid', 'Tes Testimoni', 'Teknik Informatika - Institut Teknologi Sumatera', 'pasha.jpg'),
-(4,`testimoni`,'hamzah', 'ok', 'lampung', '');
+(1,'Testimoni', 'Taufik Agung Santoso', 'mengakses informasi menggunakan layanan di web ini itu dapat dipercaya, dan pasti terupdate beritanya', 'Teknik Informatika - Institut Teknologi Sumatera', 'taufik.jpg'),
+(3,'Testimoni','Pasha Abdul Khalid', 'Tes Testimoni', 'Teknik Informatika - Institut Teknologi Sumatera', 'pasha.jpg'),
+(4,'Testimoni','hamzah', 'ok', 'lampung', 'foto');
 
 -- --------------------------------------------------------
-<!-- kalo mau ambil data ulasan 
-	SELECT `nama`,text`,`asal`,`foto` FROM `testimoni` WHERE `label` = `kuliner`;
--->
+-- kalo mau ambil data ulasan 
+--	SELECT `nama`,text`,`asal`,`foto` FROM `testimoni` WHERE `label` = `kuliner`;
+
 
 -- Table structure for table `User`
 --
 
 CREATE TABLE `User` (
   `Email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -246,8 +258,8 @@ INSERT INTO `User` (`Email`, `password`) VALUES
 --
 
 CREATE TABLE `wisata` (
-  `id_daerah` char(3) NOT NULL auto_increment,
-  `id_wisata` int(10) NOT NULL,
+  `id_daerah` char(3) NOT NULL,
+  `id_wisata` int(10) NOT NULL auto_increment,
   `tempat` varchar(20) NOT NULL DEFAULT 'Lampung',
   `nama_wisata` varchar(25) NOT NULL,
   `lokasi` varchar(100) NOT NULL,
@@ -255,8 +267,11 @@ CREATE TABLE `wisata` (
   `deskripsi` text,
   `gambar` varchar(20) NOT NULL DEFAULT 'fakeimage.jpg',
   `maps` text NOT NULL,
-  `uname` VARCHAR(8)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1; auto_increment = 10;
+  `uname` VARCHAR(8),
+  PRIMARY KEY(`id_wisata`),
+  FOREIGN KEY (`uname`) REFERENCES `member`(`uname`) ON UPDATE CASCADE,
+  FOREIGN KEY (`id_daerah`) REFERENCES `daerah`(`id_daerah`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 auto_increment = 10;
 
 --
 -- Dumping data for table `wisata`
@@ -277,110 +292,15 @@ INSERT INTO `wisata` (`id_daerah`, `tempat`, `nama_wisata`, `lokasi`, `harga`, `
 --
 -- Indexes for table `admin`
 --
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`username`);
 
---
--- Indexes for table `daerah`
---
-ALTER TABLE `daerah`
-  ADD PRIMARY KEY (`id_daerah`);
-
---
 -- Indexes for table `hotel`
 --
-ALTER TABLE `hotel`
-  ADD PRIMARY KEY (`id_hotel`),
-  ADD KEY `id_daerah` (`id_daerah`);
-
---
--- Indexes for table `hotel_favorit`
---
-ALTER TABLE `hotel_favorit`
-  ADD PRIMARY KEY (`id_hotel`),
-  ADD KEY `id_daerah` (`id_daerah`);
-
---
--- Indexes for table `kuliner`
---
-ALTER TABLE `kuliner`
-  ADD PRIMARY KEY (`id_resto`),
-  ADD KEY `id_daerah` (`id_daerah`);
-
---
--- Indexes for table `kuliner_favorit`
---
-ALTER TABLE `kuliner_favorit`
-  ADD PRIMARY KEY (`id_resto`);
-
---
--- Indexes for table `testimoni`
---
-ALTER TABLE `testimoni`
-  ADD PRIMARY KEY (`id_testimoni`);
-
---
--- Indexes for table `User`
---
-ALTER TABLE `User`
-  ADD PRIMARY KEY (`Email`);
-
---
--- Indexes for table `wisata`
---
-ALTER TABLE `wisata`
-  ADD PRIMARY KEY (`id_wisata`),
-  ADD KEY `id_daerah` (`id_daerah`);
-
-
--- foreign member ke wisata
-
-ALTER  TABLE `wisata
-  ADD FOREIGN KEY (`uname`) REFERENCES `member`(`uname`) ON UPDATE CASCADE;
-  
-  
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `testimoni`
---
-ALTER TABLE `testimoni`
-  MODIFY `id_testimoni` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `hotel`
---
-ALTER TABLE `hotel`
-  ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`id_daerah`) REFERENCES `daerah` (`id_daerah`) ON UPDATE CASCADE;
-
---
--- Constraints for table `kuliner`
---
-ALTER TABLE `kuliner`
-  ADD CONSTRAINT `kuliner_ibfk_1` FOREIGN KEY (`id_daerah`) REFERENCES `daerah` (`id_daerah`) ON UPDATE CASCADE;
-
---
--- Constraints for table `wisata`
---
-ALTER TABLE `wisata`
-  ADD CONSTRAINT `wisata_ibfk_1` FOREIGN KEY (`id_daerah`) REFERENCES `daerah` (`id_daerah`) ON UPDATE CASCADE;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
 
-<!-- Mencambah data di tabel pariwisata 
-
-  INSERT INTO pariwisata (`id_daerah`, `nama_wisata`, `lokasi`, `harga`, `deskripsi`, `gambar`,`member`) VALUES
-  ( blablabla,blabla,blabla,<member adalah sesi member yang login>)
- -->
+-- Mencambah data di tabel pariwisata 
+-- INSERT INTO pariwisata (`id_daerah`, `nama_wisata`, `lokasi`, `harga`, `deskripsi`, `gambar`,`member`) VALUES ( blablabla,blabla,blabla,<member adalah sesi member yang login>)
  
