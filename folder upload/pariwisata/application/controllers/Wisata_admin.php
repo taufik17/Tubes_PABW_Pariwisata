@@ -90,7 +90,7 @@ class Wisata_admin extends CI_Controller {
 					<strong class="green">
 					</strong>Data sukses di simpan </div>');
 		}
-		redirect('wisata/tambah');
+		redirect('Wisata_admin/tambah');
 	}
 	public function tambah(){
 		$this->model_keamanan_admin->getkeamananadmin();
@@ -119,6 +119,6 @@ class Wisata_admin extends CI_Controller {
 		{
 			$this->model_update_wisata->getdelete($key);
 		}
-		redirect('wisata');
+		redirect('Wisata_admin');
 	}
 }
