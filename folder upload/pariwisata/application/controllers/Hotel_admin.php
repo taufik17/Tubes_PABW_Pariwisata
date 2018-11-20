@@ -17,7 +17,7 @@ class Hotel_admin extends CI_Controller {
   public function edit()
 	{
 		$this->model_keamanan_admin->getkeamananadmin();
-		$isi['content'] 	= 'admin/edit_konten_Hotel';
+		$isi['content'] 	= 'admin/edit_konten_hotel';
 		$isi['judul']		= 'Hotel';
 		$isi['sub_judul']	= 'Edit hotel';
 
@@ -57,7 +57,7 @@ class Hotel_admin extends CI_Controller {
 		$this->model_keamanan_admin->getkeamananadmin();
 		$key = $this->input->post('id_hotel');
 		$data['id_hotel']			= $this->input->post('id_hotel');
-		$data['nama']				= $this->input->post('tempat');
+		$data['tempat']				= $this->input->post('tempat');
 		$data['nama_hotel']			= $this->input->post('nama_hotel');
 		$data['lokasi']				= $this->input->post('lokasi');
 		$data['harga']				= $this->input->post('harga');
@@ -89,18 +89,21 @@ class Hotel_admin extends CI_Controller {
 					<strong class="green">
 					</strong>Data sukses di simpan </div>');
 		}
-		redirect('hotel/tambah');
+		redirect('Hotel_admin/tambah');
 	}
 	public function tambah(){
 		$this->model_keamanan_admin->getkeamananadmin();
 		$isi['content'] 		= 'admin/tampilan_tambah_hotel';
 		$isi['judul']			= 'Hotel';
 		$isi['sub_judul']		= 'Tambah hotel';
-		$isi['id_testimoni']	= '';
-		$isi['nama']			= '';
-		$isi['text']			= '';
-		$isi['asal']			= '';
-		$isi['foto']			= '';
+		$isi['id_hotel']	= '';
+		$isi['id_daerah']			= '';
+		$isi['tempat']			= '';
+		$isi['nama_hotel']			= '';
+		$isi['lokasi']			= '';
+		$isi['harga']			= '';
+		$isi['deskripsi']			= '';
+		$isi['gambar']			= '';
 		$this->load->view('admin/tampilan_beranda_admin',$isi);
 	}
 	public function delete()
@@ -115,6 +118,6 @@ class Hotel_admin extends CI_Controller {
 		{
 			$this->model_update_hotel->getdelete($key);
 		}
-		redirect('hotel');
+		redirect('hotel_admin');
 	}
 }
