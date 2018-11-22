@@ -115,7 +115,7 @@ class Kuliner_admin extends CI_Controller {
 		$query = $this->db->get('kuliner');
 		if($query->num_rows()>0)
 		{
-			$this->model_update_hotel->getdelete($key);
+			$this->model_update_kuliner->getdelete($key);
 		}
 		redirect('Kuliner_admin');
 	}
