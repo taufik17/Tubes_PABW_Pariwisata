@@ -5,7 +5,7 @@ class Proses_login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('tampilan_login');
+
 	}
 
 	public function adminlogin()
@@ -15,4 +15,13 @@ class Proses_login extends CI_Controller {
 		$this->load->model('model_adminlogin');
 		$this->model_adminlogin->getlogin($u, $p);
 	}
+
+	public function userlogin()
+    {
+        $u = $this->input->post('Email');
+        $p = $this->input->post('password');
+        $this->load->model('model_userlogin');
+        $this->model_userlogin->getlogin($u, $p);
+
+    }
 }
