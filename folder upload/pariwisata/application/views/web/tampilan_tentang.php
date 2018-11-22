@@ -55,8 +55,8 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div style="background-color: rgba(1, 68, 64, 0.59)" class="col-md-9 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>&nbsp&nbspTak Kenal Maka Tak Sayang <br></strong>
-               &nbsp&nbspWe We Are Love You</h1>
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>&nbsp&nbspBekerja Sama<br></strong>
+               &nbsp&nbsp& Mencapai Tujuan Bersama</h1>
           </div>
         </div>
       </div>
@@ -72,13 +72,14 @@
 
  <div class="album py-5 bg-light">
         <div class="container">
+          <h1>Tim Kami</h1>
 
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url();?>asset/images/taufik.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">Nama: Taufik Agung Santoso <br>Nim: 14116007<br>Prodi: Teknik Informatika</p>
                   <div class="d-flex justify-content-between align-items-center">
                   </div>
                 </div>
@@ -86,9 +87,9 @@
             </div>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url();?>asset/images/aidil.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer ng text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">Nama: Ahmad Reza Aidil Adha <br>Nim: 14116072<br>Prodi: Teknik Informatika</p>
                   <div class="d-flex justify-content-between align-items-center">
                   </div>
                 </div>
@@ -96,9 +97,9 @@
             </div>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                 <img class="card-img-top" src="<?php echo base_url();?>asset/images/pasha1.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">Nama: Pasha Abdul Khalik <br>Nim: 14116090<br>Prodi: Teknik Informatika</p>
                   <div class="d-flex justify-content-between align-items-center">
                   </div>
                 </div>
@@ -107,9 +108,9 @@
 
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url();?>asset/images/anto.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">Nama: Yulianto Pambudi <br>Nim: 14116098<br>Prodi: Teknik Informatika</p>
                   <div class="d-flex justify-content-between align-items-center">
                   </div>
                 </div>
@@ -117,9 +118,9 @@
             </div>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url();?>asset/images/gandung.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">Nama: Nursano Gandung Praseto <br>Nim: 14116103<br>Prodi: Teknik Informatika</p>
                   <div class="d-flex justify-content-between align-items-center">
                   </div>
                 </div>
@@ -127,9 +128,9 @@
             </div>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url();?>asset/images/dean.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">Nama: Dean Cristhoper <br>Nim: 14116052<br>Prodi: Teknik Informatika</p>
                   <div class="d-flex justify-content-between align-items-center">
                   </div>
                 </div>
