@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('model_keamanan_admin', 'model_update_testimoni');
+$autoload['model'] = array('model_keamanan_admin', 'model_update_testimoni', 'model_keamanan_user','model_update_kuliner','model_update_wisata','model_update_hotel');
