@@ -40,7 +40,7 @@
             <li class="nav-item control active"><a href="<?php echo base_url(); ?>Wisata" class="nav-link icon-map">&nbspWisata</a></li>
             <li class="nav-item control"><a href="<?php echo base_url(); ?>Hotel" class="nav-link icon-hotel">&nbspHotel</a></li>
             <li class="nav-item control"><a href="<?php echo base_url(); ?>Kuliner" class="nav-link icon-cutlery">&nbspKuliner</a></li>
-            <li class="nav-item control"><a href="about.html" class="nav-link icon-info">&nbspTentang</a></li>
+            <li class="nav-item control"><a href="<?php echo base_url(); ?>Tentang" class="nav-link icon-info">&nbspTentang</a></li>
 
           </ul>
         </div>
