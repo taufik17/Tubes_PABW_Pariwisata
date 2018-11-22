@@ -45,7 +45,7 @@ if(!empty($info))
 ?>
 <div>&nbsp </div>
 <div>&nbsp </div>
-<form class="form-horizontal" method="POST" action="<?php echo base_url();?>Objekwisata/simpan" onsubmit="return cekform();">
+<form class="form-horizontal" method="POST" action="<?php echo base_url();?>ObjekWisata/simpan" onsubmit="return cekform();">
 
     <div class="control-group">
         <label class="control-label">Nama Daerah</label>
@@ -99,7 +99,7 @@ if(!empty($info))
 		Simpan
 		</button>
 		&nbsp; &nbsp;
-		<a href="<?php echo base_url();?>Objekwisata" class="btn btn-primary btn-small">
+		<a href="<?php echo base_url();?>ObjekWisata" class="btn btn-primary btn-small">
 			<i class="icon-remove"></i>tutup</a>
 
 	</div>
