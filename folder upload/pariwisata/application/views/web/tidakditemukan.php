@@ -16,8 +16,17 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-lg-offset-3">
-        <h1 class="text-center" style="font-size:150px; font-weight:800;">404</h1>
+        <h1 class="text-center" style="font-size:50px; font-weight:500;">404</h1>
         <p class="text-center lead">Halaman yang diminta tidak tersedia</p>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3 text-center ">
+        <a href="<?php echo base_url(); ?>">
+        <button type="submit" class="btn btn-default">Beranda</button>
+        </a>
         <hr>
       </div>
     </div>
@@ -28,14 +37,7 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-3 text-center ">
-        <hr class="">
-        <a href="<?php echo base_url(); ?>">
-        <button type="submit" class="btn btn-default">Beranda</button>
-        </a>
-      </div>
-    </div>
+
   </div>
 
 
